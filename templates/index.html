@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/index.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-class">
+            <h1> BLACKBOARD </h1>
+        </div>
+    </header>
+    <div class="row">
+        <!--      table 1-->
+        <div class="table"  style=" width: 49%;">
+            <div class="table-name">
+                <h2> Add Module Leader </h2>
+                <p class="description"> Add Module leader tool allows you to add module leader into your course as
+                    Student/ Instructor / External examiner </p>
+            </div>
+
+            <div class="table-content">
+                <form method="POST" action="/search">
+                    <div class="input-container">
+                        <label for="userName">Enter Staff User Name: </label>
+                        <input type="text" id="userName" name="userName" class="input"
+                            placeholder="Enter Staff User Name"><br>
+                    </div>
+                    <div class="input-container">
+                        <label for="courseName">Enter Course Name</label>
+                        <input type="text" id="courseName" name="courseName" class="input" placeholder="Enter Course Name"><br>
+                    </div>
+                    <button type="submit" class="submit">Search</button>
+                </form>
+            </div>
+        </div>
+
+
+        <!--      table 2-->
+        <div class="table" style=" width: 49%;">
+            <div class="table-name">
+                <h2> User and Course details </h2>
+            </div>
+
+            <div class="table-content">
+                <div class="input-container">
+                    <label>Username: </label>
+                </div>
+                <div class="input-container">
+                    <label>Email: </label>
+                </div>
+                <div class="input-container">
+                    <label>Course Id: </label>
+                </div>
+                <div class="input-container">
+                    <label>Course Name: </label>
+                </div>
+                <div class="input-container">
+                    <label>Created At: </label>
+                </div>
+
+                <div class="input-container">
+                    <form method="GET" action="add">
+                        <div class="select-box">
+                            <div>
+                                <label for="my-select">Add user as:</label>
+                                <select name="my-select" id="my-select">
+                                    <option value="Instructor">Instructor</option>
+                                    <option value="Student">Student</option>
+                                    <option value="External Examiner">External Examiner</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="submit remove-btn" style="margin-top: 15px;">Remove User</button>
+                        </div>
+                        <button type="submit" class="submit" style="margin-top: 15px;">Add to curse</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="table"  style=" width: 100%;">
+            <div class="table-name" style="height: 25px;">
+                <h4 style="margin-top: -1px;"> Select Staff And Curse Details  </h4>
+            </div>
+
+            <div class="table-content" style="display: flex; justify-content: space-between; padding: 20px;">
+                <div class="result-table">
+                    <div class="result-table-header">
+                       Showing 0 results
+                    </div>
+
+                    <div class="no-result-container">
+                        No results found
+                    </div>
+                </div>
+
+                <div class="result-table">
+                    <div class="result-table-header">
+                       Showing 0 results
+                    </div>
+
+                    <div class="no-result-container">
+                        No results found
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
