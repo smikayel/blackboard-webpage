@@ -100,7 +100,13 @@
                     </div>
                     {% if context and context['user_count'] %}
                         {% for user in context['user'] %}
-                            <div class="result_row">{{ user.userName }}</div>
+                            <div class="result_row">
+                                <p> {{ user.id }} </p>
+                                <p> {{ user.userName }} </p>
+                                <p> {{ user.gender }} </p>
+                                <p> {{ user.contact__email }} </p>
+                                <p> {{ user.institutionRoleIds__001 }} </p>
+                            </div>
                         {% endfor %}
                     {% else %}
                         <div class="no-result-container">
@@ -118,9 +124,19 @@
                        {% endif %}
                     </div>
 
-                    <div class="no-result-container">
-                        No results found
-                    </div>
+                    {% if context and context['course_count'] %}
+                        {% for course in context['course'] %}
+                            <div class="result_row">
+                                <p> {{ course.id }} </p>
+                                <p> {{ course.name }} </p>
+                                <p> {{ course.courseId }} </p>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="no-result-container">
+                            No results found
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
