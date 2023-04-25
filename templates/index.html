@@ -92,17 +92,30 @@
             <div class="table-content" style="display: flex; justify-content: space-between; padding: 20px;">
                 <div class="result-table">
                     <div class="result-table-header">
-                       Showing 0 results
+                       {% if context %}
+                            Showing {{ context['user_count'] }} results
+                       {% else %}
+                            Showing 0 results
+                       {% endif %}
                     </div>
-
-                    <div class="no-result-container">
-                        No results found
-                    </div>
+                    {% if context and context['user_count'] %}
+                        {% for user in context['user'] %}
+                            <div class="result_row">{{ user.userName }}</div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="no-result-container">
+                            No results found
+                        </div>
+                    {% endif %}
                 </div>
 
                 <div class="result-table">
                     <div class="result-table-header">
-                       Showing 0 results
+                       {% if context %}
+                            Showing {{ context['course_count'] }} results
+                       {% else %}
+                            Showing 0 results
+                       {% endif %}
                     </div>
 
                     <div class="no-result-container">
