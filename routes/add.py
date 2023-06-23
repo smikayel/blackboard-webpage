@@ -13,6 +13,7 @@ def add_handler():
         course_id = request.form['course_id']
         user_id = request.form['user_id']
         api = BlackboardApi()
+        print(role)
         res = api.make_post_request(course_id, user_id, role)
 
     except Exception as e:

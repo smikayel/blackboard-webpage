@@ -58,7 +58,7 @@
                     <label>
                         Email:
                         {% if context and context['user'][0] %}
-                            {{ context['user'][0].contact__email }}
+                            {{ context['user'][0]['contact']['email'] }}
                         {% endif %}
                     </label>
                 </div>
@@ -66,7 +66,7 @@
                     <label>
                         Course Id:
                         {% if context and context['course'] %}
-                            {{ context['course'][0].uuid }}
+                            {{ context['course'][0]['courseId'] }}
                         {% endif %}
                     </label>
                 </div>
@@ -74,7 +74,7 @@
                     <label>
                         Course Name:
                         {% if context and context['course'] %}
-                            {{ context['course'][0].name }}
+                            {{ context['course'][0]['name'] }}
                         {% endif %}
                     </label>
                 </div>
@@ -82,7 +82,7 @@
                     <label>
                         Created At:
                         {% if context and context['course']%}
-                            {{ context['course'][0].created }}
+                            {{ context['course'][0]['created'] }}
                         {% endif %}
                     </label>
                 </div>
@@ -90,10 +90,10 @@
                 <div class="input-container">
                     <form method="POST" action="/add_user">
                         {% if context and context['user']%}
-                            <input type="hidden" name="user_id" value="{{ context['user'][0].uuid }}">
+                            <input type="hidden" name="user_id" value="{{ context['user'][0]['id'] }}">
                         {% endif %}
                         {% if context and context['course']%}
-                            <input type="hidden" name="course_id" value="{{ context['course'][0].uuid }}">
+                            <input type="hidden" name="course_id" value="{{ context['course'][0]['id'] }}">
                         {% endif %}
                         <div class="select-box">
                             <div>
@@ -101,7 +101,7 @@
                                 <select name="role" id="my-select">
                                     <option value="Instructor">Instructor</option>
                                     <option value="Student">Student</option>
-                                    <option value="External Examiner">External Examiner</option>
+                                    <option value="Grader">External Examiner</option>
                                 </select>
                             </div>
                             <button type="submit" class="submit" style="margin-top: 3px;">Add User</button>
@@ -112,10 +112,10 @@
                 <div class="input-container">
                     <form method="POST" action="/remove_user">
                         {% if context and context['user']%}
-                            <input type="hidden" name="username" value="{{ context['user'][0].uuid }}">
+                            <input type="hidden" name="user_id" value="{{ context['user'][0]['id'] }}">
                         {% endif %}
                         {% if context and context['course']%}
-                            <input type="hidden" name="course_id" value="{{ context['course'][0].uuid }}">
+                            <input type="hidden" name="course_id" value="{{ context['course'][0]['id'] }}">
                         {% endif %}
                         <button type="submit" class="submit remove-btn" style="margin-top: 2px;">Remove User</button>
                     </form>
